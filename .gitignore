@@ -36,4 +36,4 @@ build/
 
 ### Mac OS ###
 .DS_Store
-/ConnectionManager.java
+/src/main/java/com/application/bookdotnext/dal/ConnectionManager.java
