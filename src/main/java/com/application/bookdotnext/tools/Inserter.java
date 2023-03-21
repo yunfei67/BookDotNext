@@ -35,15 +35,15 @@ public class Inserter {
 
     BookInfo bookInfo = new BookInfo("Henry Purcell",	1995	,"Henry Purcell set to music an entire age. Endlessly resourceful and dazzlingly innovatory",
         "http://books.google.com/books?id=RFEZAQAAIAAJ&dq=Henry+Purcell&hl=&source=gbs_api", Categories.Fiction, "Lion Books", "Maureen Duffy",
-        "http://books.google.com/books/content?id=RFEZAQAAIAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api");
+        "https://books.google.com/books/content?id=RFEZAQAAIAAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE730q9PUyqHCTxF7wQQiyGKvX7C7Kg3ltSAfzamrHLTcgQzUmQ8FevuM--c4NlW885maeoB6ug1m_TiTKxXOVl3wDUIPUGYK-rSPUXID-HcLc7kJQSgOm1E9pj5ZhwxXV-i17g2y");
     BookInfo bookInfo1 = new BookInfo("Life on a Pig Farm", 2004, "Discover what life is like on five different types of farms",
         "http://books.google.com/books?id=FCJa1BWkMMAC&dq=Life+on+a+Pig+Farm+(Carolrhoda+Photo+Books)&hl=&source=gbs_api", Categories.Art,
         "Willowisp Press", "Judy Wolfman",
-        "http://books.google.com/books/content?id=FCJa1BWkMMAC&printsec=frontcover&img=1&zoom=1&source=gbs_api");
+        "https://books.google.com/books/content?id=RFEZAQAAIAAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE730q9PUyqHCTxF7wQQiyGKvX7C7Kg3ltSAfzamrHLTcgQzUmQ8FevuM--c4NlW885maeoB6ug1m_TiTKxXOVl3wDUIPUGYK-rSPUXID-HcLc7kJQSgOm1E9pj5ZhwxXV-i17g2y");
     BookInfo bookInfo2 = new BookInfo("Life on a Pig Farm", 2021, "Discover what life is like on five different types of farms",
         "http://books.google.com/books?id=FCJa1BWkMMAC&dq=Life+on+a+Pig+Farm+(Carolrhoda+Photo+Books)&hl=&source=gbs_api", Categories.Fiction,
         "Willowisp Press", "Judy Wolfman",
-        "http://books.google.com/books/content?id=FCJa1BWkMMAC&printsec=frontcover&img=1&zoom=1&source=gbs_api");
+        "https://books.google.com/books/content?id=RFEZAQAAIAAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE730q9PUyqHCTxF7wQQiyGKvX7C7Kg3ltSAfzamrHLTcgQzUmQ8FevuM--c4NlW885maeoB6ug1m_TiTKxXOVl3wDUIPUGYK-rSPUXID-HcLc7kJQSgOm1E9pj5ZhwxXV-i17g2y");
 
     bookInfo = bookInfoDao.create(bookInfo);
     bookInfo1 = bookInfoDao.create(bookInfo1);

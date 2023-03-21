@@ -7,11 +7,19 @@
   <!--
   <servlet>
     <servlet-name>FindBooks</servlet-name>
-    <servlet-class>blog.servlet.FindBooks</servlet-class>
+    <servlet-class>com.application.bookdotnext.servlet.FindBooks</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>FindBooks</servlet-name>
     <url-pattern>/findBooks</url-pattern>
   </servlet-mapping>
   -->
+<!--  <servlet>-->
+<!--    <servlet-name>BookUpdate</servlet-name>-->
+<!--    <servlet-class>com.application.bookdotnext.servlet.BookUpdate</servlet-class>-->
+<!--  </servlet>-->
+<!--  <servlet-mapping>-->
+<!--    <servlet-name>BookUpdate</servlet-name>-->
+<!--    <url-pattern>/bookupdate</url-pattern>-->
+<!--  </servlet-mapping>-->
 </web-app>

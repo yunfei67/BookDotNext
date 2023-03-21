@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Find a User</title>
+<title>Find a Book</title>
 </head>
 <body>
 	<form action="findBooks" method="post">
@@ -38,7 +38,7 @@
                 <th>PublisherName</th>
                 <th>AuthorName</th>
                 <th>ImageLink</th>
-                <th>Delete Book</th>
+<%--                <th>Delete Book</th>--%>
                 <th>Update Book</th>
             </tr>
             <c:forEach items="${bookInfo}" var="bookInfo" >
@@ -51,11 +51,12 @@
                     <td><c:out value="${bookInfo.getCategories()}" /></td>
                     <td><c:out value="${bookInfo.getPublisherName()}" /></td>
                     <td><c:out value="${bookInfo.getAuthorName()}" /></td>
-                    <td><c:out value="${bookInfo.getImageLink()}" /></td>
+                    <td><img src="${bookInfo.getImageLink()}"></td>
+<%--                    <td><img src=<c:out value="${bookInfo.getImageLink()}"/> alt=""></td>--%>
 <%--                    <td><a href="userblogposts?username=<c:out value="${blogUser.getUserName()}"/>">BlogPosts</a></td>--%>
 <%--                    <td><a href="blogcomments?username=<c:out value="${blogUser.getUserName()}"/>">BlogComments</a></td>--%>
 <%--                    <td><a href="userdelete?username=<c:out value="${blogUser.getUserName()}"/>">Delete</a></td>--%>
-<%--                    <td><a href="userupdate?username=<c:out value="${blogUser.getUserName()}"/>">Update</a></td>--%>
+                    <td><a href="bookupdate?bookId=<c:out value="${bookInfo.getBookId()}"/>">Update</a></td>
                 </tr>
             </c:forEach>
        </table>

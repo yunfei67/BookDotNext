@@ -45,7 +45,7 @@ public class BookInfoDao {
       insertStmt.setString(5, bookInfo.getCategories().name());
       insertStmt.setString(6, bookInfo.getPublisherName());
       insertStmt.setString(7, bookInfo.getAuthorName());
-      insertStmt.setString(8, bookInfo.getInfoLink());
+      insertStmt.setString(8, bookInfo.getImageLink());
       insertStmt.executeUpdate();
 
       // Retrieve the auto-generated key and set it, so it can be used by the caller.
