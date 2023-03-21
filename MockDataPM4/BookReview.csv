@@ -1,0 +1,31 @@
+ReviewId,ReviewScore,Content,Created,UserId,BookId
+NULL,5,Couldn't put it down!,2023-01-16 12:00:34,11,1
+NULL,5,Wow! Fantasitic story,2023-01-16 07:59:56,12,1
+NULL,5,Shockingly Sad but True,2023-02-21 12:11:47,13,1
+NULL,4,The storyline was engaging and the characters were relatable,2023-02-04 13:36:23,15,1
+NULL,4,Gentle introduction the life of an Arabian princess,2023-02-25 01:19:06,16,1
+NULL,2,Disappointing,2023-01-19 03:22:15,20,2
+NULL,1,Disappointing,2023-02-06 00:34:20,21,2
+NULL,3,History,2023-01-02 03:55:04,14,2
+NULL,5,I would definitely recommend this book.The author's writing style is clear and concise making it easy to follow along,2023-01-27 08:10:48,14,6
+NULL,5,Couldn't put it down!,2023-02-02 10:16:37,15,6
+NULL,5,Shockingly Sad but True,2023-01-01 10:46:25,16,6
+NULL,5,A Perspective On Various English Bishops,2023-03-15 20:40:51,17,6
+NULL,2,Disappointing,2023-02-23 08:48:24,19,9
+NULL,5,Wow!,2022-07-23 19:59:25,18,12
+NULL,5,Simple is Powerful,2023-02-11 03:18:12,19,13
+NULL,5,Top Roman Catholic Apologetics,2023-01-25 13:22:38,20,14
+NULL,5,I wish I could send one to every person on earth,2023-02-21 07:40:38,21,15
+NULL,5,Riveting!,2023-03-14 00:21:14,22,16
+NULL,5,Princess Sultana is a true heroin!,2023-03-19 16:47:31,23,17
+NULL,5,Magical Sultana,2023-01-27 01:00:05,24,17
+NULL,4,Great--but not QUITE as good as the first two,2023-02-15 11:42:15,17,19
+NULL,5,Princess Sultana's Circle,2023-03-17 01:59:03,25,20
+NULL,5,Couldn't put it down!,2023-02-27 23:55:03,11,20
+NULL,5,Shockingly Sad but True,2023-03-12 01:30:51,12,22
+NULL,4,Gentle introduction the life of an Arabian princess,2023-03-11 10:00:11,18,24
+NULL,5,Saudi Arabia,2023-01-08 13:38:02,13,25
+NULL,1,Full of lies...,2023-02-08 20:22:13,22,27
+NULL,2,Not sure if it's true,2023-03-20 18:00:49,23,27
+NULL,4,Fun Adventure,2023-01-12 07:45:06,18,12
+NULL,3,Hard reading,2023-03-14 09:11:21,14,27
