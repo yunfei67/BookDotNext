@@ -10,7 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-//test
+//test2
 public class BookInfoDao {
 
   protected ConnectionManager connectionManager;
