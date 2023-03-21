@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/bookcreate")
 public class BookCreate extends HttpServlet {
   protected BookInfoDao bookInfoDao;
+  // test
 
   @Override
   public void init() throws ServletException {
