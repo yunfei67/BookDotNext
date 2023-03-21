@@ -7,7 +7,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -44,7 +43,7 @@ public class BookReviewDao {
 			insertStmt = connection.prepareStatement(insertBookReview, Statement.RETURN_GENERATED_KEYS);
 			insertStmt.setDouble(1, bookReview.getReviewScore());
 			insertStmt.setString(2, bookReview.getContent());
-			insertStmt.setTimestamp(3, new Timestamp (bookReview.getCreated().getTime()));
+			insertStmt.setDate(3, bookReview.getCreated());
 			insertStmt.setInt(4, bookReview.getUser().getUserId());
 			insertStmt.setInt(5, bookReview.getBookInfo().getBookId());
 			
@@ -127,7 +126,7 @@ public class BookReviewDao {
 				int resultBookReviewId = results.getInt("BookReviewId");
 				Double reviewScore = results.getDouble("ReviewScore");
 				String content = results.getString("Content");
-				Date created = new Date(results.getTimestamp("Created").getTime());
+				Date created = results.getDate("Created");
 				int userId = results.getInt("UserId");
 				int bookId = results.getInt("BookId");
 				
@@ -181,7 +180,7 @@ public class BookReviewDao {
 				int resultBookReviewId = results.getInt("BookReviewId");
 				Double reviewScore = results.getDouble("ReviewScore");
 				String content = results.getString("Content");
-				Date created = new Date(results.getTimestamp("Created").getTime());
+				Date created = results.getDate("Created");
 				// int userId = results.getInt("UserId");
 				int bookId = results.getInt("BookId");
 					
@@ -234,7 +233,7 @@ public class BookReviewDao {
 				int resultBookReviewId = results.getInt("BookReviewId");
 				Double reviewScore = results.getDouble("ReviewScore");
 				String content = results.getString("Content");
-				Date created = new Date(results.getTimestamp("Created").getTime());
+				Date created = results.getDate("Created");
 				int userId = results.getInt("UserId");
 				// int bookId = results.getInt("BookId");
 					

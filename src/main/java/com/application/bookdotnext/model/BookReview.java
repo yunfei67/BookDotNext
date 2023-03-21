@@ -79,8 +79,8 @@ public class BookReview {
 	}
 
 
-	public Date getCreated() {
-		return created;
+	public java.sql.Date getCreated() {
+		return (java.sql.Date) created;
 	}
 
 
