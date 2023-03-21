@@ -56,7 +56,11 @@ public class FindBookReviewByUserId extends HttpServlet {
         
         // Retrieve and validate name.
         // userId is retrieved from the URL query string.
-        Integer userId = Integer.valueOf(req.getParameter("userId"));
+		Integer userId = null;
+		String userIdString = req.getParameter("bookId");
+		if (userIdString != null) {
+			userId = Integer.valueOf(userIdString);
+		}
         if (userId == null || userId < 0) {
             messages.put("fail", "Please enter a valid userId.");
         } else {

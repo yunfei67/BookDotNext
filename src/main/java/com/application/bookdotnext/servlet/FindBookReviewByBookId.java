@@ -56,13 +56,19 @@ public class FindBookReviewByBookId extends HttpServlet {
         
         // Retrieve and validate name.
         // userId is retrieved from the URL query string.
-        Integer bookId = Integer.valueOf(req.getParameter("bookId"));
+		Integer bookId = null;
+		String bookIdString = req.getParameter("bookId");
+		if (bookIdString != null) {
+			bookId = Integer.valueOf(bookIdString);
+		}
+
         if (bookId == null || bookId < 0) {
             messages.put("fail", "bookId is not valid.");
         } else {
         	// Retrieve BookReview, and store as a message.
         	try {
         		bookReview = bookReviewDao.getBookReviewsByBookId(bookId);
+				req.setAttribute("bookReview", bookReview);
             } catch (SQLException e) {
     			e.printStackTrace();
     			throw new IOException(e);
@@ -72,8 +78,7 @@ public class FindBookReviewByBookId extends HttpServlet {
         	// in the input box when rendering FindBookReviewByBookId.jsp.
         	// messages.put("previousBookId", bookId.toString());
         }
-        req.setAttribute("bookReview", bookReview);
-        
+
         req.getRequestDispatcher("/FindBookReviewByBookId.jsp").forward(req, resp);
 	}
 	

@@ -40,10 +40,10 @@ public class BookReviewCreate extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 //		// Map for storing messages.
-//        Map<String, String> messages = new HashMap<String, String>();
-//        req.setAttribute("messages", messages);
+        Map<String, String> messages = new HashMap<String, String>();
+        req.setAttribute("messages", messages);
         //Just render the JSP.   
-        req.getRequestDispatcher("/bookreviewcreate.jsp").forward(req, resp);
+        req.getRequestDispatcher("/BookReviewCreate.jsp").forward(req, resp);
 	}
 	
 	
