@@ -92,8 +92,9 @@ public class UsersDao extends PersonsDao {
 
   public Users getUserFromUserName(String userName) throws SQLException {
     // To build an BlogUser object, we need the Persons record, too.
+
     String selectUser =
-        "SELECT Persons.UserName AS UserName, FirstName, LastName, DOB " +
+        "SELECT Persons.UserName AS UserName, FirstName, LastName,Password,Permission,DOB " +
             "FROM Users INNER JOIN Persons " +
             "ON Users.UserName = Persons.UserName " +
             "WHERE Persons.UserName=?;";
@@ -109,9 +110,12 @@ public class UsersDao extends PersonsDao {
         String resultUserName = results.getString("UserName");
         String firstName = results.getString("FirstName");
         String lastName = results.getString("LastName");
+        String password = results.getString("Password");
+        boolean permission = results.getBoolean("Permission");
         Date dob = new Date(results.getTimestamp("DOB").getTime());
 
-        Users User = new Users(resultUserName, firstName, lastName, dob );
+        Persons person = create(new Persons(resultUserName, firstName,lastName,password,permission));
+        Users User = new Users(person.getUserName(), person.getFirstName(), person.getLastName(), dob );
         return User;
       }
     } catch (SQLException e) {
@@ -133,7 +137,7 @@ public class UsersDao extends PersonsDao {
   public Users getUserByUserId(int userId) throws SQLException {
     // To build an BlogUser object, we need the Persons record, too.
     String selectUser =
-        "SELECT Persons.UserName AS UserName, FirstName, LastName, DOB " +
+        "SELECT Persons.UserName AS UserName, FirstName, LastName,Password,Permission,DOB " +
             "FROM Users INNER JOIN Persons " +
             "ON Users.UserId = Persons.UserId " +
             "WHERE Users.UserId=?;";
@@ -149,9 +153,12 @@ public class UsersDao extends PersonsDao {
         String resultUserName = results.getString("UserName");
         String firstName = results.getString("FirstName");
         String lastName = results.getString("LastName");
+        String password = results.getString("Password");
+        boolean permission = results.getBoolean("Permission");
         Date dob = new Date(results.getTimestamp("DOB").getTime());
 
-        Users User = new Users(resultUserName, firstName, lastName, dob );
+        Persons person = create(new Persons(resultUserName, firstName,lastName,password,permission));
+        Users User = new Users(person.getUserName(), person.getFirstName(), person.getLastName(), dob );
         return User;
       }
     } catch (SQLException e) {
@@ -178,7 +185,7 @@ public class UsersDao extends PersonsDao {
       throws SQLException {
     List<Users> UserList = new ArrayList<Users>();
     String selectUsers =
-        "SELECT Persons.UserName AS UserName, FirstName, LastName, DOB " +
+        "SELECT Persons.UserName AS  UserName, FirstName, LastName,Password,Permission,DOB " +
             "FROM Users INNER JOIN Persons " +
             "ON Users.UserId = Persons.UserId " +
             "WHERE Persons.UserName=?;";
@@ -195,9 +202,11 @@ public class UsersDao extends PersonsDao {
         String resultFirstName = results.getString("FirstName");
         String lastName = results.getString("LastName");
         Date dob = new Date(results.getTimestamp("DOB").getTime());
+        String password = results.getString("Password");
+        boolean permission = results.getBoolean("Permission");
 
-
-        Users User = new Users(userName, resultFirstName, lastName, dob);
+        Persons person = create(new Persons(userName, resultFirstName,lastName,password,permission));
+        Users User = new Users(person.getUserName(), person.getFirstName(), person.getLastName(), dob );
         UserList.add(User);
       }
     } catch (SQLException e) {
