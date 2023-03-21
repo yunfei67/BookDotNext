@@ -51,8 +51,7 @@ public class FindSearchHistory extends HttpServlet{
       // in the input box when rendering FindBooks.jsp.
       messages.put("previousSearchHistory", userId);
     }
-    System.out.println(userId);
-    System.out.println(searchHistories);
+
     req.setAttribute("searchHistory", searchHistories);
 
     req.getRequestDispatcher("/FindSearchHistory.jsp").forward(req, resp);
