@@ -11,7 +11,7 @@
 <title>Create a User</title>
 </head>
 <body>
-	<h1>Create BlogUser</h1>
+	<h1>Create BookInfo</h1>
 	<form action="bookcreate" method="post">
 		<p>
 			<label for="bookTitle">bookTitle</label>
