@@ -137,7 +137,7 @@ public class UsersDao extends PersonsDao {
   public Users getUserByUserId(int userId) throws SQLException {
     // To build an BlogUser object, we need the Persons record, too.
     String selectUser =
-        "SELECT Persons.UserName AS UserName, FirstName, LastName,Password,Permission,DOB " +
+        "SELECT Persons.UserId AS UserId,UserName, FirstName, LastName,Password,Permission,DOB " +
             "FROM Users INNER JOIN Persons " +
             "ON Users.UserId = Persons.UserId " +
             "WHERE Users.UserId=?;";
@@ -151,14 +151,13 @@ public class UsersDao extends PersonsDao {
       results = selectStmt.executeQuery();
       if(results.next()) {
         String resultUserName = results.getString("UserName");
+        int resultUserId = results.getInt("UserId");
         String firstName = results.getString("FirstName");
         String lastName = results.getString("LastName");
         String password = results.getString("Password");
-        boolean permission = results.getBoolean("Permission");
         Date dob = new Date(results.getTimestamp("DOB").getTime());
 
-        Persons person = create(new Persons(resultUserName, firstName,lastName,password,permission));
-        Users User = new Users(person.getUserName(), person.getFirstName(), person.getLastName(), dob );
+        Users User = new Users(resultUserId, resultUserName, firstName, lastName,password, dob);
         return User;
       }
     } catch (SQLException e) {

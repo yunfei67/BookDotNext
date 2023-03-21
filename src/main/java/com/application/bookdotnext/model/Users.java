@@ -42,8 +42,11 @@ public class Users extends Persons {
 
 		// TODO Auto-generated constructor stub
 	}
-	
 
+	public Users(int userId, String userName, String firstName, String lastName, String password, Date dob) {
+		super(userId, userName, firstName, lastName, password);
+		this.dob = dob;
+	}
 
 
 	public Date getDob() {
