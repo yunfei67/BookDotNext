@@ -1,8 +1,7 @@
 package com.application.bookdotnext.dal;
 
 
-import com.application.bookdotnext.model.Administrators;
-import com.application.bookdotnext.model.Persons;
+import com.application.bookdotnext.model.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -129,7 +128,8 @@ public class AdministratorsDao extends PersonsDao {
         String resultUserName = results.getString("UserName");
         String firstName = results.getString("FirstName");
         String lastName = results.getString("LastName");
-        Date lastLogin = new Date(results.getTimestamp("LastLogin").getTime());
+
+        Timestamp lastLogin = results.getTimestamp("LastLogin");
         Administrators administrator = new Administrators(resultUserName, firstName, lastName, lastLogin);
         return administrator;
       }
@@ -168,7 +168,7 @@ public class AdministratorsDao extends PersonsDao {
         String resultUserName = results.getString("UserName");
         String firstNameA = results.getString("FirstName");
         String lastName = results.getString("LastName");
-        Date lastLogin = new Date(results.getTimestamp("LastLogin").getTime());
+        Timestamp lastLogin = results.getTimestamp("LastLogin");
         Administrators administrator = new Administrators(resultUserName, firstNameA, lastName, lastLogin);
         return administrator;
       }
@@ -207,7 +207,7 @@ public class AdministratorsDao extends PersonsDao {
         String resultUserName = results.getString("UserName");
         String firstNameA = results.getString("FirstName");
         String lastNameA = results.getString("LastName");
-        Date lastLogin = new Date(results.getTimestamp("LastLogin").getTime());
+        Timestamp lastLogin = results.getTimestamp("LastLogin");
         Administrators administrator = new Administrators(resultUserName, firstNameA, lastNameA, lastLogin);
         return administrator;
       }
@@ -249,7 +249,7 @@ public class AdministratorsDao extends PersonsDao {
         String userName = results.getString("UserName");
         String resultFirstName = results.getString("FirstName");
         String lastName = results.getString("LastName");
-        Date lastLogin = new Date(results.getTimestamp("LastLogin").getTime());
+        Timestamp lastLogin = results.getTimestamp("LastLogin");
         Administrators administrator = new Administrators(userName, resultFirstName, lastName, lastLogin);
         administrators.add(administrator);
       }
