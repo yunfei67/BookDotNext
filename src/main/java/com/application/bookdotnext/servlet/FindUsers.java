@@ -2,6 +2,9 @@ package com.application.bookdotnext.servlet;
 
 import com.application.bookdotnext.dal.*;
 import com.application.bookdotnext.model.*;
+import com.application.bookdotnext.dal.UsersDao;
+import com.application.bookdotnext.model.Users;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -10,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

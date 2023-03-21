@@ -1,7 +1,8 @@
 package com.application.bookdotnext.dal;
 
 
-import com.application.bookdotnext.model.*;
+import com.application.bookdotnext.model.Persons;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

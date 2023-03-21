@@ -1,9 +1,9 @@
 package com.application.bookdotnext.dal;
 
 
-import com.application.bookdotnext.model.*;
-import com.application.bookdotnext.model.SearchHistory;
-import com.application.bookdotnext.model.Votes;
+import com.application.bookdotnext.model.Persons;
+import com.application.bookdotnext.model.Users;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
