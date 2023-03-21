@@ -1,6 +1,8 @@
 package com.application.bookdotnext.servlet;
 
 import com.application.bookdotnext.dal.AdministratorsDao;
+import com.application.bookdotnext.model.Administrators;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;

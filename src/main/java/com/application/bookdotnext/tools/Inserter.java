@@ -5,7 +5,6 @@ import com.application.bookdotnext.dal.SearchHistoryDao;
 import com.application.bookdotnext.dal.UsersDao;
 import com.application.bookdotnext.dal.VotesDao;
 import com.application.bookdotnext.model.BookInfo;
-import com.application.bookdotnext.model.BookInfo.Categories;
 import com.application.bookdotnext.model.Persons;
 import com.application.bookdotnext.model.SearchHistory;
 import com.application.bookdotnext.model.Users;
@@ -63,14 +62,14 @@ public class Inserter {
     LocalDate localDate = tDate1.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
     BookInfo bookInfo = new BookInfo("Henry Purcell",	1995	,"Henry Purcell set to music an entire age. Endlessly resourceful and dazzlingly innovatory",
-        "http://books.google.com/books?id=RFEZAQAAIAAJ&dq=Henry+Purcell&hl=&source=gbs_api", Categories.Fiction, "Lion Books", "Maureen Duffy",
+        "http://books.google.com/books?id=RFEZAQAAIAAJ&dq=Henry+Purcell&hl=&source=gbs_api", "Fiction", "Lion Books", "Maureen Duffy",
         "http://books.google.com/books/content?id=RFEZAQAAIAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api");
     BookInfo bookInfo1 = new BookInfo("Life on a Pig Farm", 2004, "Discover what life is like on five different types of farms",
-        "http://books.google.com/books?id=FCJa1BWkMMAC&dq=Life+on+a+Pig+Farm+(Carolrhoda+Photo+Books)&hl=&source=gbs_api", Categories.Art,
+        "http://books.google.com/books?id=FCJa1BWkMMAC&dq=Life+on+a+Pig+Farm+(Carolrhoda+Photo+Books)&hl=&source=gbs_api", "Art",
         "Willowisp Press", "Judy Wolfman",
         "http://books.google.com/books/content?id=FCJa1BWkMMAC&printsec=frontcover&img=1&zoom=1&source=gbs_api");
     BookInfo bookInfo2 = new BookInfo("Life on a Pig Farm", 2021, "Discover what life is like on five different types of farms",
-        "http://books.google.com/books?id=FCJa1BWkMMAC&dq=Life+on+a+Pig+Farm+(Carolrhoda+Photo+Books)&hl=&source=gbs_api", Categories.Fiction,
+        "http://books.google.com/books?id=FCJa1BWkMMAC&dq=Life+on+a+Pig+Farm+(Carolrhoda+Photo+Books)&hl=&source=gbs_api", "Categories",
         "Willowisp Press", "Judy Wolfman",
         "http://books.google.com/books/content?id=FCJa1BWkMMAC&printsec=frontcover&img=1&zoom=1&source=gbs_api");
 

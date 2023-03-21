@@ -34,6 +34,8 @@ public class BookReviewCreate extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		bookReviewDao = BookReviewDao.getInstance();
+		bookInfoDao = bookInfoDao.getInstance();
+		usersDao = usersDao.getInstance();
 	}
 	
 	@Override
@@ -90,7 +92,7 @@ public class BookReviewCreate extends HttpServlet {
         	Double reviewScore = Double.valueOf(req.getParameter("reviewscore"));
         	String content = req.getParameter("content");
         	
-        	// dob must be in the format yyyy-mm-dd.
+        	// created must be in the format yyyy-mm-dd.
         	DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         	String stringCreated = req.getParameter("created");
         	Date created = new Date();
@@ -105,7 +107,7 @@ public class BookReviewCreate extends HttpServlet {
 	        	// Exercise: parse the input for StatusLevel.
 	        	BookReview bookReview = new BookReview(reviewScore, content, created, user, bookInfo);
 	        	bookReview = bookReviewDao.create(bookReview);
-	        	messages.put("success", "Successfully created " + bookReview);
+	        	messages.put("success", "Successfully created " + bookReview.toString());
 	        } catch (SQLException e) {
 				e.printStackTrace();
 				throw new IOException(e);

@@ -2,13 +2,15 @@
 
 package com.application.bookdotnext.model;
 
+import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class BookReview {
 	protected int reviewId;
 	protected double reviewScore;
 	protected String content;
-	protected Date created;	
+	protected Date created;
 	protected Users user;
 	protected BookInfo bookInfo;
 	
@@ -79,8 +81,8 @@ public class BookReview {
 	}
 
 
-	public java.sql.Date getCreated() {
-		return (java.sql.Date) created;
+	public Date getCreated() {
+		return created;
 	}
 
 
@@ -109,7 +111,14 @@ public class BookReview {
 	}
 
 
-
-
-
+	@Override
+	public String toString() {
+		return "BookReview{" +
+				"reviewId=" + reviewId +
+				", reviewScore=" + reviewScore +
+				", content='" + content + '\'' +
+				", userId=" + user.userId +
+				", bookTitle=" + bookInfo.getBookTitle() +
+				'}';
+	}
 }

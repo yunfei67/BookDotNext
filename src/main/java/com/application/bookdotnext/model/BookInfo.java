@@ -11,20 +11,21 @@ public class BookInfo {
   private int publishedDate;
   private String description;
   private String infoLink;
-  private Categories categories;
+  private String categories;
   private String publisherName;
   private String authorName;
   private String ImageLink;
 
-  public enum Categories {
-    Fiction, ComicsGraphicNovels, AfricanAmericans, AmericanLiterature, Architecture,
-    BiographyAutobiography, Religion, AeronauticsAmerican , Art,
-    SocialScience, JuvenileNonfiction, Actors, AntiquesCollectibles,
-    TechnologyEngineering, AdventureStories, BusinessEconomics;
-  }
+//  public enum Categories {
+//    Fiction, ComicsGraphicNovels, AfricanAmericans, AmericanLiterature, Architecture,
+//    BiographyAutobiography, Religion, AeronauticsAmerican , Art,
+//    SocialScience, JuvenileNonfiction, Actors, AntiquesCollectibles,
+//    TechnologyEngineering, AdventureStories, BusinessEconomics;
+//  }
 
-  public BookInfo(String bookTitle, int publishedDate, String description, String infoLink,
-      Categories categories, String publisherName, String authorName, String imageLink) {
+
+  public BookInfo(int bookId, String bookTitle, int publishedDate, String description, String infoLink, String categories, String publisherName, String authorName, String imageLink) {
+    BookId = bookId;
     BookTitle = bookTitle;
     this.publishedDate = publishedDate;
     this.description = description;
@@ -35,10 +36,7 @@ public class BookInfo {
     ImageLink = imageLink;
   }
 
-  public BookInfo(int bookId, String bookTitle, int publishedDate, String description,
-      String infoLink, Categories categories, String publisherName, String authorName,
-      String imageLink) {
-    BookId = bookId;
+  public BookInfo(String bookTitle, int publishedDate, String description, String infoLink, String categories, String publisherName, String authorName, String imageLink) {
     BookTitle = bookTitle;
     this.publishedDate = publishedDate;
     this.description = description;
@@ -89,11 +87,11 @@ public class BookInfo {
     this.infoLink = infoLink;
   }
 
-  public Categories getCategories() {
+  public String getCategories() {
     return categories;
   }
 
-  public void setCategories(Categories categories) {
+  public void setCategories(String categories) {
     this.categories = categories;
   }
 

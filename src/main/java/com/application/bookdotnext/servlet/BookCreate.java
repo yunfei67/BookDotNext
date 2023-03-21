@@ -3,7 +3,6 @@ package com.application.bookdotnext.servlet;
 
 import com.application.bookdotnext.dal.BookInfoDao;
 import com.application.bookdotnext.model.BookInfo;
-import com.application.bookdotnext.model.BookInfo.Categories;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.DateFormat;
@@ -66,7 +65,7 @@ public class BookCreate extends HttpServlet {
 //      int publishedYear = Integer.parseInt(req.getParameter("publishedYear"));
       try {
         // Exercise: parse the input for StatusLevel.
-        BookInfo bookInfo = new BookInfo(bookTitle, publishedYear, description, infoLink, Categories.valueOf(categories), publisherName, authorName, imageLink);
+        BookInfo bookInfo = new BookInfo(bookTitle, publishedYear, description, infoLink, categories, publisherName, authorName, imageLink);
         bookInfo = bookInfoDao.create(bookInfo);
         messages.put("success", "Successfully created " + bookTitle);
       } catch (SQLException e) {
