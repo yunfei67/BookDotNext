@@ -1,7 +1,6 @@
 package com.application.bookdotnext.dal;
 
 import com.application.bookdotnext.model.BookInfo;
-import com.application.bookdotnext.model.BookInfo.Categories;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -43,7 +42,7 @@ public class BookInfoDao {
       insertStmt.setInt(2,  bookInfo.getPublishedDate());
       insertStmt.setString(3, bookInfo.getDescription());
       insertStmt.setString(4, bookInfo.getInfoLink());
-      insertStmt.setString(5, bookInfo.getCategories().name());
+      insertStmt.setString(5, bookInfo.getCategories());
       insertStmt.setString(6, bookInfo.getPublisherName());
       insertStmt.setString(7, bookInfo.getAuthorName());
       insertStmt.setString(8, bookInfo.getImageLink());
@@ -152,7 +151,7 @@ public class BookInfoDao {
     String selectBookInfo =
         "SELECT BookId,BookTitle,PublishedDate,Description,InfoLink,Categories,PublisherName,AuthorName,ImageLink " +
             "FROM BookInfo " +
-            "WHERE BookId=?;";
+            "WHERE BookId=?; ";
     Connection connection = null;
     PreparedStatement selectStmt = null;
     ResultSet results = null;
@@ -161,14 +160,13 @@ public class BookInfoDao {
       selectStmt = connection.prepareStatement(selectBookInfo);
       selectStmt.setInt(1, bookId);
       results = selectStmt.executeQuery();
-      BookInfoDao bookInfoDao = BookInfoDao.getInstance();
       if(results.next()) {
         int resultBookId = results.getInt("BookId");
         String bookTitle = results.getString("BookTitle");
         int publishedDate = results.getInt("PublishedDate");
         String description = results.getString("Description");
         String infoLink = results.getString("InfoLink");
-        Categories categories = Categories.valueOf(results.getString("Categories"));
+        String categories = results.getString("Categories");
         String publisherName = results.getString("PublisherName");
         String authorName = results.getString("AuthorName");
         String imageLink = results.getString("ImageLink");
@@ -222,7 +220,7 @@ public class BookInfoDao {
         int publishedDate = results.getInt("PublishedDate");
         String description = results.getString("Description");
         String infoLink = results.getString("InfoLink");
-        Categories categories = Categories.valueOf(results.getString("Categories"));
+        String categories = results.getString("Categories");
         String publisherName = results.getString("PublisherName");
         String authorName = results.getString("AuthorName");
         String imageLink = results.getString("ImageLink");

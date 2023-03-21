@@ -2,11 +2,7 @@
 
 package com.application.bookdotnext.dal;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -38,12 +34,17 @@ public class BookReviewDao {
 		Connection connection = null;
 		PreparedStatement insertStmt = null;
 		ResultSet resultKey = null;
+		java.util.Date utilDate = new java.util.Date();
+
 		try {
 			connection = connectionManager.getConnection();
 			insertStmt = connection.prepareStatement(insertBookReview, Statement.RETURN_GENERATED_KEYS);
 			insertStmt.setDouble(1, bookReview.getReviewScore());
 			insertStmt.setString(2, bookReview.getContent());
-			insertStmt.setDate(3, bookReview.getCreated());
+			utilDate = bookReview.getCreated();
+			java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+			insertStmt.setDate(3, sqlDate);
+			// insertStmt.setDate(3, new (java.sql.Date) bookReview.getCreated().getTime());
 			insertStmt.setInt(4, bookReview.getUser().getUserId());
 			insertStmt.setInt(5, bookReview.getBookInfo().getBookId());
 			

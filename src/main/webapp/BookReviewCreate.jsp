@@ -14,6 +14,14 @@
 	<h1>Create BookReview</h1>
 	<form action="bookreviewcreate" method="post">
 		<p>
+			<label for="userId">UserId</label>
+			<input id="userId" name="userId" value="">
+		</p>
+		<p>
+			<label for="bookId">BookId</label>
+			<input id="bookId" name="bookId" value="">
+		</p>
+		<p>
 			<label for="reviewscore">ReviewScore</label>
 			<input id="reviewscore" name="reviewscore" value="">
 		</p>
