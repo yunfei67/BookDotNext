@@ -34,8 +34,9 @@ public class AdministratorsDao extends PersonsDao {
 
   public Administrators create(Administrators administrator) throws SQLException {
     // Insert into the superclass table first.
+    // For Administrator Create permission is set to True = 1
     Persons person = super.create(new Persons(administrator.getUserId(), administrator.getUserName(), administrator.getFirstName(),
-        administrator.getLastName(), administrator.getPassword(),true));
+        administrator.getLastName(), administrator.getPassword(), true));
 
     String insertAdministrator = "INSERT INTO Administrators(UserId,LastLogin) VALUES(?,?);";
     Connection connection = null;
