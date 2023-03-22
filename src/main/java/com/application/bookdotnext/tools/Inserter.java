@@ -78,6 +78,7 @@ public class Inserter {
     Author author5 = new Author("Donald J. Wiseman", "US");
     Author author6 = new Author("Maureen Duff", "US");
     Author author7 = new Author("Judy Wolfman", "UK");
+    Author author8 = new Author("Henry Purcell", "US");
 
     authorDao.create(author);
     authorDao.create(author1);
@@ -87,6 +88,7 @@ public class Inserter {
     authorDao.create(author5);
     authorDao.create(author6);
     authorDao.create(author7);
+    authorDao.create(author8);
 
     //BookInfo
     BookInfo bookInfo = new BookInfo("Henry Purcell",	1995	,"Henry Purcell set to music an entire age. Endlessly resourceful and dazzlingly innovatory",
