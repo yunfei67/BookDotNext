@@ -67,6 +67,9 @@ public class Inserter {
 
     Publishers publishers1 = new Publishers("Lion Books", "US");
     Publishers publishers2 = new Publishers("Willowisp Press", "FR");
+    publishersDao.create(publishers1);
+    publishersDao.create(publishers2);
+
     Author author = new Author("Rose Arny", "US");
     Author author1 = new Author("John Napiery", "US");
     Author author2 = new Author("JMichael Joosten", "UK");
