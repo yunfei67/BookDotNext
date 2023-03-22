@@ -164,7 +164,7 @@ public class BookReviewDao {
 		String selectBookReview =
 			"SELECT ReviewId,ReviewScore,Content,Created,UserId,BookId " +
 			"FROM BookReview " + 
-			"WHERE UserId=?;";
+			"WHERE UserId=?; ";
 		Connection connection = null;
 		PreparedStatement selectStmt = null;
 		ResultSet results = null;
@@ -217,7 +217,7 @@ public class BookReviewDao {
 		String selectBookReview =
 			"SELECT ReviewId,ReviewScore,Content,Created,UserId,BookId " +
 			"FROM BookReview " + 
-			"WHERE BookId=?;";
+			"WHERE BookId=?; ";
 		Connection connection = null;
 		PreparedStatement selectStmt = null;
 		ResultSet results = null;

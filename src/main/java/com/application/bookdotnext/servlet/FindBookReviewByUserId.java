@@ -57,7 +57,7 @@ public class FindBookReviewByUserId extends HttpServlet {
         // Retrieve and validate name.
         // userId is retrieved from the URL query string.
 		Integer userId = null;
-		String userIdString = req.getParameter("bookId");
+		String userIdString = req.getParameter("userId");
 		if (userIdString != null) {
 			userId = Integer.valueOf(userIdString);
 		}
@@ -66,7 +66,7 @@ public class FindBookReviewByUserId extends HttpServlet {
         } else {
         	// Retrieve BookReviews, and store as a message.
         	try {
-        		bookReview = bookReviewDao.getBookReviewsByBookId(userId);
+        		bookReview = bookReviewDao.getBookReviewsByUserId(userId);
             } catch (SQLException e) {
     			e.printStackTrace();
     			throw new IOException(e);
