@@ -15,8 +15,8 @@
 	<form action="topTenListDelete" method="post">
 		<p>
 			<div <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
-				<label for="toptenlistId">TopTenListId</label>
-				<input id="toptenlistId" name="toptenlistId" value="${fn:escapeXml(param.toptenlistId)}">
+				<label for="topTenListId">TopTenListId</label>
+				<input id="topTenListId" name="topTenListId" value="${fn:escapeXml(param.toptenlistId)}">
 			</div>
 		</p>
 		<p>
