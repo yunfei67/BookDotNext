@@ -1,14 +1,8 @@
 package com.application.bookdotnext.tools;
 
-import com.application.bookdotnext.dal.BookInfoDao;
-import com.application.bookdotnext.dal.SearchHistoryDao;
-import com.application.bookdotnext.dal.UsersDao;
-import com.application.bookdotnext.dal.VotesDao;
-import com.application.bookdotnext.model.BookInfo;
-import com.application.bookdotnext.model.Persons;
-import com.application.bookdotnext.model.SearchHistory;
-import com.application.bookdotnext.model.Users;
-import com.application.bookdotnext.model.Votes;
+import com.application.bookdotnext.dal.*;
+import com.application.bookdotnext.model.*;
+
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.DateFormat;
@@ -25,6 +19,7 @@ public class Inserter {
     BookInfoDao bookInfoDao = BookInfoDao.getInstance();
     SearchHistoryDao searchHistoryDao = SearchHistoryDao.getInstance();
     VotesDao votesDao = VotesDao.getInstance();
+    BookReviewDao bookReviewDao = BookReviewDao.getInstance();
 
     // INSERT objects from our model.
 
@@ -109,7 +104,8 @@ public class Inserter {
     vote3 = votesDao.create(vote3);
 
 
-
+    BookReview bookReview = new BookReview(0.0, "great", tDate3, user1, bookInfo1);
+    bookReviewDao.create(bookReview);
 
 
 

@@ -44,7 +44,7 @@
                     <td><c:out value="${bookReview.getContent()}" /></td>
                     <td><fmt:formatDate value="${bookReview.getCreated()}" pattern="yyyy-MM-dd"/></td>
                     <td><c:out value="${bookReview.getUser().getUserName()}" /></td>
-                    <td><c:out value="${bookReview.getBookInfo().getBookTitle}" /></td>
+                    <td><c:out value="${bookReview.getBookInfo().getBookTitle()}" /></td>
 
                     <%-- <td><a href="userblogposts?username=<c:out value="${blogUser.getUserName()}"/>">BlogPosts</a></td>
                     <td><a href="blogcomments?username=<c:out value="${blogUser.getUserName()}"/>">BlogComments</a></td> --%>

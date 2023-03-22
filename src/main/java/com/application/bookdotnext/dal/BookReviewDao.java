@@ -124,7 +124,7 @@ public class BookReviewDao {
 			BookInfoDao bookInfoDao = BookInfoDao.getInstance();
 			
 			if(results.next()) {
-				int resultBookReviewId = results.getInt("BookReviewId");
+				int resultReviewId = results.getInt("ReviewId");
 				Double reviewScore = results.getDouble("ReviewScore");
 				String content = results.getString("Content");
 				Date created = results.getDate("Created");
@@ -135,7 +135,7 @@ public class BookReviewDao {
 				Users user = usersDao.getUserByUserId(userId);
 				BookInfo bookInfo = bookInfoDao.getBookInfoById(bookId);
 				
-				BookReview bookReview = new BookReview(resultBookReviewId, reviewScore, content, created, user, bookInfo);
+				BookReview bookReview = new BookReview(resultReviewId, reviewScore, content, created, user, bookInfo);
 				return bookReview;
 			}
 		} catch (SQLException e) {
@@ -178,7 +178,7 @@ public class BookReviewDao {
 			BookInfoDao bookInfoDao = BookInfoDao.getInstance();
 			
 			while(results.next()) {
-				int resultBookReviewId = results.getInt("BookReviewId");
+				int resultReviewId = results.getInt("ReviewId");
 				Double reviewScore = results.getDouble("ReviewScore");
 				String content = results.getString("Content");
 				Date created = results.getDate("Created");
@@ -188,7 +188,7 @@ public class BookReviewDao {
 				Users user = usersDao.getUserByUserId(userId);
 				BookInfo bookInfo = bookInfoDao.getBookInfoById(bookId);
 				
-				BookReview bookReview = new BookReview(resultBookReviewId, reviewScore, content, created, user, bookInfo);
+				BookReview bookReview = new BookReview(resultReviewId, reviewScore, content, created, user, bookInfo);
 				bookReviews.add(bookReview);
 			}
 		} catch (SQLException e) {
@@ -231,7 +231,7 @@ public class BookReviewDao {
 			BookInfoDao bookInfoDao = BookInfoDao.getInstance();
 			
 			while(results.next()) {
-				int resultBookReviewId = results.getInt("BookReviewId");
+				int resultReviewId = results.getInt("ReviewId");
 				Double reviewScore = results.getDouble("ReviewScore");
 				String content = results.getString("Content");
 				Date created = results.getDate("Created");
@@ -241,7 +241,7 @@ public class BookReviewDao {
 				Users user = usersDao.getUserByUserId(userId);
 				BookInfo bookInfo = bookInfoDao.getBookInfoById(bookId);
 				
-				BookReview bookReview = new BookReview(resultBookReviewId, reviewScore, content, created, user, bookInfo);
+				BookReview bookReview = new BookReview(resultReviewId, reviewScore, content, created, user, bookInfo);
 				bookReviews.add(bookReview);
 			}
 		} catch (SQLException e) {
