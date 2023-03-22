@@ -69,16 +69,21 @@ public class Inserter {
     Publishers publishers2 = new Publishers("Willowisp Press", "FR");
     Author author = new Author("Rose Arny", "US");
     Author author1 = new Author("John Napiery", "US");
-    Author author2 = new Author("JMichael Joosten", "EN");
-    Author author3 = new Author("Sian Tucker", "EN");
+    Author author2 = new Author("JMichael Joosten", "UK");
+    Author author3 = new Author("Sian Tucker", "JP");
     Author author4 = new Author("Charles Hodge", "KR");
     Author author5 = new Author("Donald J. Wiseman", "US");
+    Author author6 = new Author("Maureen Duff", "US");
+    Author author7 = new Author("Judy Wolfman", "UK");
+
     authorDao.create(author);
     authorDao.create(author1);
     authorDao.create(author2);
     authorDao.create(author3);
     authorDao.create(author4);
     authorDao.create(author5);
+    authorDao.create(author6);
+    authorDao.create(author7);
 
     //BookInfo
     BookInfo bookInfo = new BookInfo("Henry Purcell",	1995	,"Henry Purcell set to music an entire age. Endlessly resourceful and dazzlingly innovatory",
