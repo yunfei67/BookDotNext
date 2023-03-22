@@ -52,8 +52,8 @@
                 <th>DoB</th>
                 <th>Reviews</th>
                 <th>Search History</th>
-                    <th>Personal Recommendation</th>
-
+                <th>Personal Recommendation</th>
+		<th>Top 10 List </th>
                 <th>Delete User</th>
                 <th>Update User</th>
             </tr>
@@ -67,6 +67,7 @@
                     <td><a href="findBookReviewByUserId?userId=<c:out value="${User.getUserId()}"/>">Reviews</a></td>
                     <td><a href="findsearchhistory?userId=<c:out value="${User.getUserId()}"/>">Search History</a></td>
                     <td><a href="PersonalRecommendation?userId=<c:out value="${User.getUserId()}"/>">Personal Recommendations</a></td>
+		    <td><a href="FindTopTenList?userId=<c:out value="${User.getUserId()}"/>">TopTenLists</a></td>
                     <td><a href="userdelete?username=<c:out value="${User.getUserName()}"/>">Delete</a></td>
                     <td><a href="usercreate?username=<c:out value="${User.getUserName()}"/>">Update</a></td>
 
