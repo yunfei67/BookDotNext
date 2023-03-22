@@ -84,7 +84,7 @@ CREATE TABLE Author (
 
 CREATE TABLE BookInfo(
     BookId INT AUTO_INCREMENT,
-    BookTitle VARCHAR(255) NOT NULL,
+    BookTitle VARCHAR(255) NOT NULL ,
     -- PublishedDate YEAR NOT NULL,
     PublishedDate INT NOT NULL,
     Description LONGTEXT,
@@ -97,13 +97,13 @@ CREATE TABLE BookInfo(
     PublisherName VARCHAR(255),
     AuthorName VARCHAR(255),
     ImageLink VARCHAR(255),
-    CONSTRAINT pk_BookInfo_BookId PRIMARY KEY(BookId)
-	-- CONSTRAINT fk_BookInfo_AuthorName FOREIGN KEY(AuthorName)
---       REFERENCES Author(AuthorName)
---       ON UPDATE CASCADE ON DELETE CASCADE,
---     CONSTRAINT fk_BookInfo_PublisherName FOREIGN KEY(PublisherName)
---       REFERENCES Publishers(PublisherName)
---       ON UPDATE CASCADE ON DELETE CASCADE
+    CONSTRAINT pk_BookInfo_BookId PRIMARY KEY(BookId),
+	CONSTRAINT fk_BookInfo_AuthorName FOREIGN KEY(AuthorName)
+      REFERENCES Author(AuthorName)
+      ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT fk_BookInfo_PublisherName FOREIGN KEY(PublisherName)
+      REFERENCES Publishers(PublisherName)
+      ON UPDATE CASCADE ON DELETE CASCADE
 );
 
  

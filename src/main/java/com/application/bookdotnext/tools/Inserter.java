@@ -27,6 +27,7 @@ public class Inserter {
     BookReviewDao bookReviewDao = BookReviewDao.getInstance();
     AuthorDao authorDao = AuthorDao.getInstance();
     PublishersDao publishersDao = PublishersDao.getInstance();
+    TopTenListsDao topTenListsDao = TopTenListsDao.getInstance();
 
     BookInfoDao bookInfoDao = BookInfoDao.getInstance();
     SearchHistoryDao searchHistoryDao = SearchHistoryDao.getInstance();
@@ -118,6 +119,13 @@ public class Inserter {
 
   Publishers publishers1 = new Publishers("Amazon", "US");
   Publishers publishers2 = new Publishers("Saga Press", "FR");
+
+    // TopTenList
+    TopTenLists topTenList1 = new TopTenLists(user1,bookInfo1,t1);
+
+
+
+
 
 
   }
