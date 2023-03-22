@@ -131,26 +131,12 @@ public class Inserter {
     vote1 = votesDao.create(vote1);
     vote2 = votesDao.create(vote2);
 
-
-
-
-
-
-
-
-
-
-
-
     //BookReview
     BookReview bookReview1 = new BookReview(1,5.0,"Great!",t2,user1,bookInfo1);
     bookReview1 = bookReviewDao.create(bookReview1);
 
     BookReview bookReview2 = new BookReview(2,4.0,"Great!",t2,user1,bookInfo2);
     bookReview2 = bookReviewDao.create(bookReview2);
-
-
-
 
 
     // TopTenList
