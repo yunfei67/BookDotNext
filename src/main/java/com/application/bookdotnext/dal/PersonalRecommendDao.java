@@ -1,6 +1,6 @@
 
 
-package bookReview.dal;
+package com.application.bookdotnext.dal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import bookReview.model.*;
+import com.application.bookdotnext.model.*;
 
 public class PersonalRecommendDao {
 	protected ConnectionManager connectionManager;
