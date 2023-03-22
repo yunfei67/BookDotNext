@@ -1,4 +1,4 @@
-package bookReview.model;
+package com.application.bookdotnext.model;
 
 import java.util.Date;
 
