@@ -112,12 +112,12 @@ public class VotesDao {
 
   public List<BookInfo> getTop5BookInfo() throws SQLException {
     String countVote =
-        "SELECT BookId, Count(*) AS CNT" +
+        "SELECT BookId, Count(*) AS CNT " +
             "FROM Votes " +
-            "WHERE 1=1"+
-            "GROUP BY BookId"+
-            "ORDER BY CNT" +
-            "LIMIT 10";
+            "WHERE 1=1 "+
+            "GROUP BY BookId "+
+            "ORDER BY CNT " +
+            "LIMIT 10; ";
 
     List<BookInfo> bookInfos = new ArrayList<>();
 
