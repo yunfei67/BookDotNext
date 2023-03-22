@@ -14,8 +14,8 @@
 <form action="findsearchhistory" method="get">
     <h1>Search for search history by UserId</h1>
     <p>
-        <label for="UserId">UserId</label>
-        <input id="UserId" name="UserId" value="${fn:escapeXml(param.UserId)}">
+        <label for="userId">userId</label>
+        <input id="userId" name="userId" value="${fn:escapeXml(param.userId)}">
     </p>
     <p>
         <input type="submit">

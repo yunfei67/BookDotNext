@@ -2,6 +2,7 @@ package com.application.bookdotnext.servlet;
 
 import com.application.bookdotnext.dal.SearchHistoryDao;
 import com.application.bookdotnext.model.SearchHistory;
+import com.application.bookdotnext.model.TopTenLists;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ public class FindSearchHistory extends HttpServlet{
 
     // Retrieve and validate name.
     // userId is retrieved from the URL query string.
-    String userId = req.getParameter("UserId");
+    String userId = req.getParameter("userId");
     if (userId == null || userId.trim().isEmpty()) {
       messages.put("fail", "Please enter a valid userId.");
     } else {
@@ -54,6 +55,33 @@ public class FindSearchHistory extends HttpServlet{
 
     req.setAttribute("searchHistory", searchHistories);
 
+    req.getRequestDispatcher("/FindSearchHistory.jsp").forward(req, resp);
+  }
+
+  @Override
+  public void doPost(HttpServletRequest req, HttpServletResponse resp)
+      throws ServletException, IOException {
+    // Map for storing messages.
+    Map<String, String> messages = new HashMap<String, String>();
+    req.setAttribute("messages", messages);
+
+    List<SearchHistory> searchHistories = new ArrayList<SearchHistory>();
+
+    // Retrieve and validate name.
+    String userId = req.getParameter("userId");
+    if (userId == null || userId.trim().isEmpty()) {
+      messages.put("fail", "Please enter a valid userId.");
+    } else {
+      // Retrieve BookInfo, and store as a message.
+      try {
+        searchHistories = searchHistoryDao.getSearchHistoryByUserId(Integer.parseInt(userId));
+      } catch (SQLException e) {
+        e.printStackTrace();
+        throw new IOException(e);
+      }
+      messages.put("success", "Displaying results for " + userId);
+    }
+    req.setAttribute("searchHistory", searchHistories);
     req.getRequestDispatcher("/FindSearchHistory.jsp").forward(req, resp);
   }
 
