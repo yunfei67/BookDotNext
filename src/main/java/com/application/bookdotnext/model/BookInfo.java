@@ -46,7 +46,9 @@ public class BookInfo {
     this.authorName = authorName;
     ImageLink = imageLink;
   }
-
+  public BookInfo(int bookId) {
+	  BookId = bookId;
+  }
   public int getBookId() {
     return BookId;
   }
