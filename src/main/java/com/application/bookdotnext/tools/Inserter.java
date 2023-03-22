@@ -1,7 +1,12 @@
 package com.application.bookdotnext.tools;
 
 import com.application.bookdotnext.dal.*;
+import com.application.bookdotnext.dal.*;
+
+
 import com.application.bookdotnext.model.*;
+
+
 
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -16,46 +21,50 @@ public class Inserter {
 
   public static void main(String[] args) throws SQLException {
     // DAO instances.
+    PersonsDao personsDao = PersonsDao.getInstance();
+    UsersDao usersDao = UsersDao.getInstance();
+    AdministratorsDao administratorsDao = AdministratorsDao.getInstance();
+    BookReviewDao bookReviewDao = BookReviewDao.getInstance();
+    AuthorDao authorDao = AuthorDao.getInstance();
+    PublishersDao publishersDao = PublishersDao.getInstance();
+
     BookInfoDao bookInfoDao = BookInfoDao.getInstance();
     SearchHistoryDao searchHistoryDao = SearchHistoryDao.getInstance();
     VotesDao votesDao = VotesDao.getInstance();
-    BookReviewDao bookReviewDao = BookReviewDao.getInstance();
 
     // INSERT objects from our model.
-
+    //Date
     DateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd");
     Date tDate1 = null;
     Date tDate2 = null;
-    Date tDate3 = null;
     try {
-      tDate1 = dateFormat1.parse("1995-06-01");
-      tDate2 = dateFormat1.parse("2004-03-16");
-      tDate3 = dateFormat1.parse("2021-03-16");
+      tDate1 = dateFormat1.parse("1997-06-16"); // userId1
+      tDate2 = dateFormat1.parse("2005-11-15"); // userId2
     } catch (ParseException e) {
       throw new RuntimeException(e);
     }
 
+    //TimeStamp
     DateFormat dateFormat2 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
     Timestamp t1 = null;
     Timestamp t2 = null;
     Timestamp t3 = null;
     try {
-      Date parsedDate1 = dateFormat2.parse("2022-01-01 18:53:17.000");
+      Date parsedDate1 = dateFormat2.parse("2023-02-24 17:46:13.000"); //Admin1
       t1 = new Timestamp(parsedDate1.getTime());
 
       Date parsedDate2 = dateFormat2.parse("2022-01-10 18:53:17.000");
       t2 = new Timestamp(parsedDate2.getTime());
+
       Date parsedDate3 = dateFormat2.parse("2022-02-10 18:53:17.000");
       t3 = new Timestamp(parsedDate3.getTime());
-
-
-
     } catch (ParseException e) {
       throw new RuntimeException(e);
     }
 
-    LocalDate localDate = tDate1.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+//    LocalDate localDate = tDate1.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
+    //BookInfo
     BookInfo bookInfo = new BookInfo("Henry Purcell",	1995	,"Henry Purcell set to music an entire age. Endlessly resourceful and dazzlingly innovatory",
         "http://books.google.com/books?id=RFEZAQAAIAAJ&dq=Henry+Purcell&hl=&source=gbs_api", "Fiction", "Lion Books", "Maureen Duffy",
         "http://books.google.com/books/content?id=RFEZAQAAIAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api");
@@ -64,7 +73,7 @@ public class Inserter {
         "Willowisp Press", "Judy Wolfman",
         "http://books.google.com/books/content?id=FCJa1BWkMMAC&printsec=frontcover&img=1&zoom=1&source=gbs_api");
     BookInfo bookInfo2 = new BookInfo("Life on a Pig Farm", 2021, "Discover what life is like on five different types of farms",
-        "http://books.google.com/books?id=FCJa1BWkMMAC&dq=Life+on+a+Pig+Farm+(Carolrhoda+Photo+Books)&hl=&source=gbs_api", "Categories",
+        "http://books.google.com/books?id=FCJa1BWkMMAC&dq=Life+on+a+Pig+Farm+(Carolrhoda+Photo+Books)&hl=&source=gbs_api", "Fiction",
         "Willowisp Press", "Judy Wolfman",
         "http://books.google.com/books/content?id=FCJa1BWkMMAC&printsec=frontcover&img=1&zoom=1&source=gbs_api");
 
@@ -72,40 +81,40 @@ public class Inserter {
     bookInfo1 = bookInfoDao.create(bookInfo1);
     bookInfo2 = bookInfoDao.create(bookInfo2);
 
-    Persons p1 = new Persons(1,"yc","yang","chen","a",false);
-    Persons p2 = new Persons(2,"hcw","h","c","b", false);
-    Persons p3 = new Persons(3, "test","t","s","c",false);
+    //Persons
+    Persons p1 = new Persons("aspedroni7", "Alverta","Spedroni", "nh4FPTqzeWdG",true);
+    Persons p2  = new Persons("mpotbury8","Modesta","Potbury","ioPcQyVVfO",false);
+    Persons p3 = new Persons("oosmonda", "Olga","Osmond", "ZtaRY8uAWHr",false);
 
-    Users user1 = new Users(1,"yc","yang","chen","a",false,tDate1);
-    Users user2 = new Users(2,"hcw","h","c","b", false,tDate2);
-    Users user3 = new Users(3, "test","t","s","c",false,tDate3);
+
+    //Users
+    Users user1 = new Users(2, "mpotbury8","Modesta","Potbury",
+        "ioPcQyVVfO",false,tDate1);
+    Users user2 = new Users(3,"oosmonda", "Olga","Osmond",
+        "ZtaRY8uAWHr",false,tDate2);
 
     user1 = UsersDao.getInstance().create(user1);
     user2 = UsersDao.getInstance().create(user2);
-    user3 = UsersDao.getInstance().create(user3);
 
+    //Admin
+    Administrators admin1 = new Administrators(1,"aspedroni7", "Alverta",
+        "Spedroni", "nh4FPTqzeWdG",true,t1);
+    admin1 = AdministratorsDao.getInstance().create(admin1);
 
-    SearchHistory searchHistory1 = new SearchHistory(1,1, t1);
+    //SearchHistory
+    SearchHistory searchHistory1 = new SearchHistory(1,1,t1);
     SearchHistory searchHistory2 = new SearchHistory(2,2,t2);
-    SearchHistory searchHistory3 = new SearchHistory(3,3, t3);
 
     searchHistory1 =searchHistoryDao.create(searchHistory1);
     searchHistory2 =searchHistoryDao.create(searchHistory2);
-    searchHistory3 =searchHistoryDao.create(searchHistory3);
 
-
-
+    //Vote
     Votes vote1 = new Votes(t1,1,1);
     Votes vote2 = new Votes(t2,2,2);
-    Votes vote3 = new Votes(t3,3,3);
 
     vote1 = votesDao.create(vote1);
     vote2 = votesDao.create(vote2);
-    vote3 = votesDao.create(vote3);
 
-
-    BookReview bookReview = new BookReview(0.0, "great", tDate3, user1, bookInfo1);
-    bookReviewDao.create(bookReview);
 
 
 
