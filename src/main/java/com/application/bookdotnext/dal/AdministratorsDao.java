@@ -3,6 +3,7 @@ package com.application.bookdotnext.dal;
 
 import com.application.bookdotnext.model.*;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -33,7 +34,7 @@ public class AdministratorsDao extends PersonsDao {
 
   public Administrators create(Administrators administrator) throws SQLException {
     // Insert into the superclass table first.
-    create(new Persons(administrator.getUserId(), administrator.getUserName(), administrator.getFirstName(),
+    Persons person = super.create(new Persons(administrator.getUserId(), administrator.getUserName(), administrator.getFirstName(),
         administrator.getLastName(), administrator.getPassword()));
 
     String insertAdministrator = "INSERT INTO Administrators(UserId,LastLogin) VALUES(?,?);";
@@ -42,7 +43,7 @@ public class AdministratorsDao extends PersonsDao {
     try {
       connection = connectionManager.getConnection();
       insertStmt = connection.prepareStatement(insertAdministrator);
-      insertStmt.setInt(1, administrator.getUserId());
+      insertStmt.setInt(1, person.getUserId());
       insertStmt.setTimestamp(2, new Timestamp(administrator.getLastLogin().getTime()));
       insertStmt.executeUpdate();
       return administrator;

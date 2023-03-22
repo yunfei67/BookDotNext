@@ -40,6 +40,7 @@
                 <th>ImageLink</th>
 <%--                <th>Delete Book</th>--%>
                 <th>Update Book</th>
+                <th>Reviews</th>
             </tr>
             <c:forEach items="${bookInfo}" var="bookInfo" >
                 <tr>
@@ -57,6 +58,7 @@
 <%--                    <td><a href="blogcomments?username=<c:out value="${blogUser.getUserName()}"/>">BlogComments</a></td>--%>
 <%--                    <td><a href="userdelete?username=<c:out value="${blogUser.getUserName()}"/>">Delete</a></td>--%>
                     <td><a href="bookupdate?bookId=<c:out value="${bookInfo.getBookId()}"/>">Update</a></td>
+                    <td><a href="findBookReviewByBookId?bookId=<c:out value="${bookInfo.getBookId()}"/>">Reviews</a></td>
                 </tr>
             </c:forEach>
        </table>

@@ -27,7 +27,7 @@
 	<div id="userCreate"><a href="usercreate">Create User</a></div>
 	<br/>
     <br/>
-    <div id="AdminCreate"><a href="usercreate">Create Admin</a></div>
+    <div id="AdminCreate"><a href="admincreate">Create Admin</a></div>
     <br/>
 	<h1>Matching Users</h1>
         <table border="1">
@@ -38,7 +38,7 @@
                 <th>LastName</th>
                 <th>DoB</th>
                 <th>Reviews</th>
-                <th>TopTen List</th>
+                <th>Search History</th>
                 <th>Delete User</th>
                 <th>Update User</th>
             </tr>
@@ -49,8 +49,8 @@
                     <td><c:out value="${User.getLastName()}" /></td>
                     <td><fmt:formatDate value="${User.getDob()}" pattern="yyyy-MM-dd"/></td>
 <%--                    findBookReviewByUserId--%>
-                    <td><a href="findBookReviewByUserId?username=<c:out value="${User.getUserName()}"/>">Reviews</a></td>
-                    <td><a href="uservote?username=<c:out value="${User.getUserName()}"/>">TopTen List</a></td>
+                    <td><a href="findBookReviewByUserId?userId=<c:out value="${User.getUserId()}"/>">Reviews</a></td>
+                    <td><a href="findsearchhistory?userId=<c:out value="${User.getUserId()}"/>">Search History</a></td>
                     <td><a href="userdelete?username=<c:out value="${User.getUserName()}"/>">Delete</a></td>
                     <td><a href="usercreate?username=<c:out value="${User.getUserName()}"/>">Update</a></td>
                 </tr>

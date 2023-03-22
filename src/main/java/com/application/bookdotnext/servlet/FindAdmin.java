@@ -80,7 +80,7 @@ public class FindAdmin extends HttpServlet {
       }
       messages.put("success", "Displaying results for " + userName);
     }
-    req.setAttribute("Admin", adminList);
+    req.setAttribute("adminList", adminList);
 
     req.getRequestDispatcher("/FindAdmin.jsp").forward(req, resp);
   }
