@@ -1,5 +1,8 @@
 package com.application.bookdotnext.servlet;
 
+import com.application.bookdotnext.dal.*;
+import com.application.bookdotnext.model.*;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -13,9 +16,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bookReview.dal.*;
-import bookReview.model.BookInfo;
-import bookReview.model.TopTenLists;
 
 
 @WebServlet("/PersonalRecommendation")

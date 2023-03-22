@@ -56,21 +56,21 @@ public class FindUsers extends HttpServlet {
         
         // Retrieve and validate name.
         // firstname is retrieved from the URL query string.
-        String firstName = req.getParameter("firstname");
-        if (firstName == null || firstName.trim().isEmpty()) {
+        String userName = req.getParameter("username");
+        if (userName == null || userName.trim().isEmpty()) {
             messages.put("success", "Please enter a valid name.");
         } else {
         	// Retrieve BlogUsers, and store as a message.
         	try {
-            	usersList = usersDao.getUsersFromFirstName(firstName);
+            	usersList = usersDao.getUsersFromFirstName(userName);
             } catch (SQLException e) {
     			e.printStackTrace();
     			throw new IOException(e);
             }
-        	messages.put("success", "Displaying results for " + firstName);
+        	messages.put("success", "Displaying results for " + userName);
         	// Save the previous search term, so it can be used as the default
         	// in the input box when rendering FindUsers.jsp.
-        	messages.put("previousFirstName", firstName);
+        	messages.put("previousFirstName", userName);
         }
         req.setAttribute("users", usersList);
         

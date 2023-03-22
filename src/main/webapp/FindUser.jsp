@@ -49,8 +49,8 @@
                     <td><c:out value="${User.getLastName()}" /></td>
                     <td><fmt:formatDate value="${User.getDob()}" pattern="yyyy-MM-dd"/></td>
 <%--                    findBookReviewByUserId--%>
-                    <td><a href="findBookReviewByUserId?username=<c:out value="${User.getUserName()}"/>">Reviews</a></td>
-                    <td><a href="findsearchhistory?username=<c:out value="${User.getUserName()}"/>">Search History</a></td>
+                    <td><a href="findBookReviewByUserId?userId=<c:out value="${User.getUserId()}"/>">Reviews</a></td>
+                    <td><a href="findsearchhistory?userId=<c:out value="${User.getUserId()}"/>">Search History</a></td>
                     <td><a href="userdelete?username=<c:out value="${User.getUserName()}"/>">Delete</a></td>
                     <td><a href="usercreate?username=<c:out value="${User.getUserName()}"/>">Update</a></td>
                 </tr>

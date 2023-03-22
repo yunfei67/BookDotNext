@@ -184,7 +184,7 @@ public class UsersDao extends PersonsDao {
       throws SQLException {
     List<Users> UserList = new ArrayList<Users>();
     String selectUsers =
-        "SELECT Persons.UserName AS  UserName, FirstName, LastName,Password,Permission,DOB " +
+        "SELECT Persons.UserName AS UserName, Persons.UserId AS UserId, FirstName, LastName,Password,Permission,DOB " +
             "FROM Users INNER JOIN Persons " +
             "ON Users.UserId = Persons.UserId " +
             "WHERE Persons.UserName=?;";
@@ -197,6 +197,7 @@ public class UsersDao extends PersonsDao {
       selectStmt.setString(1, firstName);
       results = selectStmt.executeQuery();
       while(results.next()) {
+        int userId = results.getInt("UserId");
         String userName = results.getString("UserName");
         String resultFirstName = results.getString("FirstName");
         String lastName = results.getString("LastName");
@@ -204,8 +205,8 @@ public class UsersDao extends PersonsDao {
         String password = results.getString("Password");
         boolean permission = results.getBoolean("Permission");
 
-        Persons person = create(new Persons(userName, resultFirstName,lastName,password,permission));
-        Users User = new Users(person.getUserName(), person.getFirstName(), person.getLastName(), dob );
+        //Persons person = create(new Persons(userId,userName, resultFirstName,lastName,password,permission));
+        Users User = new Users(userId, userName,resultFirstName,lastName,password,permission, dob );
         UserList.add(User);
       }
     } catch (SQLException e) {
