@@ -77,7 +77,7 @@ public class Inserter {
     Author author3 = new Author("Sian Tucker", "JP");
     Author author4 = new Author("Charles Hodge", "KR");
     Author author5 = new Author("Donald J. Wiseman", "US");
-    Author author6 = new Author("Maureen Duff", "US");
+    Author author6 = new Author("Maureen Duffy", "US");
     Author author7 = new Author("Judy Wolfman", "UK");
     Author author8 = new Author("Henry Purcell", "US");
 
