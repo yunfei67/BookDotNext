@@ -158,11 +158,11 @@ public class SearchHistoryDao {
 
   public List<BookInfo> getSearchedBooksByUserId(int userId) throws SQLException {
     String selectSearchedBooksByUserId =
-        "SELECT UserId, VisitedBooks, COUNT(*) AS CNT"+
-        "FROM SearchHistory" +
-        "WHERE UserId=?"+
-        "GROUP BY VisitedBooks"+
-        "ORDER BY CNT"+
+        "SELECT UserId, VisitedBooks, COUNT(*) AS CNT "+
+        "FROM SearchHistory " +
+        "WHERE UserId=? "+
+        "GROUP BY VisitedBooks "+
+        "ORDER BY CNT "+
         "LIMIT 5;";
 
     List<BookInfo> searchedBooks = new ArrayList<>();

@@ -84,9 +84,9 @@ CREATE TABLE Author (
 
 CREATE TABLE BookInfo(
     BookId INT AUTO_INCREMENT,
-    BookTitle VARCHAR(255) NOT NULL UNIQUE,
+    BookTitle VARCHAR(255) NOT NULL,
     -- PublishedDate YEAR NOT NULL,
-    PublishedDate VARCHAR(255) NOT NULL,
+    PublishedDate INT NOT NULL,
     Description LONGTEXT,
     InfoLink LONGTEXT,
     -- Categories ENUM('Fiction', 'Comics & Graphic Novels', 'African Americans', 'American literature', 'Architecture',
@@ -97,13 +97,13 @@ CREATE TABLE BookInfo(
     PublisherName VARCHAR(255),
     AuthorName VARCHAR(255),
     ImageLink VARCHAR(255),
-    CONSTRAINT pk_BookInfo_BookId PRIMARY KEY(BookId),
-	CONSTRAINT fk_BookInfo_AuthorName FOREIGN KEY(AuthorName)
-      REFERENCES Author(AuthorName)
-      ON UPDATE CASCADE ON DELETE CASCADE,
-    CONSTRAINT fk_BookInfo_PublisherName FOREIGN KEY(PublisherName)
-      REFERENCES Publishers(PublisherName)
-      ON UPDATE CASCADE ON DELETE CASCADE
+    CONSTRAINT pk_BookInfo_BookId PRIMARY KEY(BookId)
+	-- CONSTRAINT fk_BookInfo_AuthorName FOREIGN KEY(AuthorName)
+--       REFERENCES Author(AuthorName)
+--       ON UPDATE CASCADE ON DELETE CASCADE,
+--     CONSTRAINT fk_BookInfo_PublisherName FOREIGN KEY(PublisherName)
+--       REFERENCES Publishers(PublisherName)
+--       ON UPDATE CASCADE ON DELETE CASCADE
 );
 
  
@@ -199,94 +199,94 @@ CREATE TABLE UniversalRecommendation(
    REFERENCES BookInfo(BookId) ON UPDATE CASCADE ON DELETE CASCADE
    );
    
-USE BookDotNext;
-LOAD DATA LOCAL INFILE '/Users/huizou/Desktop/Northeastern/CS\ 5200/Project/MockData\ 032023/Persons.csv' INTO TABLE Persons
-  FIELDS TERMINATED BY ',' ENCLOSED BY '"'
-  LINES TERMINATED BY '\n'
-  IGNORE 1 LINES;
-  
+-- USE BookDotNext;
+-- LOAD DATA LOCAL INFILE '/Users/huizou/Desktop/Northeastern/CS\ 5200/Project/MockData\ 032023/Persons.csv' INTO TABLE Persons
+--   FIELDS TERMINATED BY ',' ENCLOSED BY '"'
+--   LINES TERMINATED BY '\n'
+--   IGNORE 1 LINES;
+--   
 
-LOAD DATA LOCAL INFILE '/Users/huizou/Desktop/Northeastern/CS\ 5200/Project/MockData\ 032023/Users.csv' INTO TABLE Users
-  FIELDS TERMINATED BY ',' ENCLOSED BY '"'
-  LINES TERMINATED BY '\n'
-  IGNORE 1 LINES
-  (Userid, @var1) 
-  SET DOB = STR_TO_DATE(@var1, '%m/%d/%Y');
-  
-
-LOAD DATA LOCAL INFILE '/Users/huizou/Desktop/Northeastern/CS\ 5200/Project/MockData\ 032023/Administrators.csv' INTO TABLE Administrators
-  FIELDS TERMINATED BY ',' ENCLOSED BY '"'
-  LINES TERMINATED BY '\n'
-  IGNORE 1 LINES;
-  
-
-LOAD DATA LOCAL INFILE '/Users/huizou/Desktop/Northeastern/CS\ 5200/Project/MockData\ 032023/SearchHistory.csv' INTO TABLE SearchHistory
-  FIELDS TERMINATED BY ',' ENCLOSED BY '"'
-  LINES TERMINATED BY '\n'
-  IGNORE 1 LINES
-  (SearchId,UserId,VisitedBooks,@var_col1)
-SET SearchTime = STR_TO_DATE(@var_col1,'%Y-%m-%d %H:%i:%s');
-
-
-LOAD DATA LOCAL INFILE '/Users/huizou/Desktop/Northeastern/CS 5200/Project/MockData 032023/Author.csv' INTO TABLE Author
-  FIELDS TERMINATED BY ',' ENCLOSED BY '"'
-  LINES TERMINATED BY '\n'
-  IGNORE 1 LINES;
-  
-
-LOAD DATA LOCAL INFILE '/Users/huizou/Desktop/Northeastern/CS\ 5200/Project/MockData\ 032023/Publishers.csv' INTO TABLE Publishers
-  FIELDS TERMINATED BY ',' ENCLOSED BY '"'
-  LINES TERMINATED BY '\n'
-  IGNORE 1 LINES;
-   
-
-
-
-LOAD DATA LOCAL INFILE '/Users/huizou/Desktop/Northeastern/CS\ 5200/Project/MockData\ 032023/BookInfo.csv' INTO TABLE BookInfo
-  CHARACTER SET latin1
-  FIELDS TERMINATED BY ',' ENCLOSED BY '"'
-  LINES TERMINATED BY '\n'
-  IGNORE 1 LINES;
-
-
-
-LOAD DATA LOCAL INFILE '/Users/huizou/Desktop/Northeastern/CS\ 5200/Project/MockData\ 032023/BookReview.csv' INTO TABLE BookReview
-  CHARACTER SET latin1
-  FIELDS TERMINATED BY ',' ENCLOSED BY '"'
-  LINES TERMINATED BY '\n'
-  IGNORE 1 LINES
-  (ReviewId,ReviewScore,Content,@var_col1,UserId,BookId)
-  SET Created = STR_TO_DATE(@var_col1,'%Y-%m-%d');
-  
- 
-
-
-LOAD DATA LOCAL INFILE '/Users/huizou/Desktop/Northeastern/CS\ 5200/Project/MockData\ 032023/Votes.csv' INTO TABLE Votes
-  FIELDS TERMINATED BY ',' ENCLOSED BY '"'
-  LINES TERMINATED BY '\n'
-  IGNORE 1 LINES
-  (VoteId,UserId,BookId,@var_col1)
-  SET Created = STR_TO_DATE(@var_col1,'%Y-%m-%d %H:%i:%s');
-
-
-
--- LOAD DATA LOCAL INFILE '/Users/huizou/Desktop/Northeastern/CS\ 5200/Project/CSV/final/UniversalRecommendation.csv' INTO TABLE UniversalRecommendation
+-- LOAD DATA LOCAL INFILE '/Users/huizou/Desktop/Northeastern/CS\ 5200/Project/MockData\ 032023/Users.csv' INTO TABLE Users
 --   FIELDS TERMINATED BY ',' ENCLOSED BY '"'
 --   LINES TERMINATED BY '\n'
 --   IGNORE 1 LINES
---   (UniversalRecomId,@var_col1,VoteId, BookId)
---   SET Created = STR_TO_DATE(@var_col1,'%Y/%m/%d %H:%i:%s');
+--   (Userid, @var1) 
+--   SET DOB = STR_TO_DATE(@var1, '%m/%d/%Y');
+--   
+
+-- LOAD DATA LOCAL INFILE '/Users/huizou/Desktop/Northeastern/CS\ 5200/Project/MockData\ 032023/Administrators.csv' INTO TABLE Administrators
+--   FIELDS TERMINATED BY ',' ENCLOSED BY '"'
+--   LINES TERMINATED BY '\n'
+--   IGNORE 1 LINES;
+--   
+
+-- LOAD DATA LOCAL INFILE '/Users/huizou/Desktop/Northeastern/CS\ 5200/Project/MockData\ 032023/SearchHistory.csv' INTO TABLE SearchHistory
+--   FIELDS TERMINATED BY ',' ENCLOSED BY '"'
+--   LINES TERMINATED BY '\n'
+--   IGNORE 1 LINES
+--   (SearchId,UserId,VisitedBooks,@var_col1)
+-- SET SearchTime = STR_TO_DATE(@var_col1,'%Y-%m-%d %H:%i:%s');
+
+
+-- LOAD DATA LOCAL INFILE '/Users/huizou/Desktop/Northeastern/CS 5200/Project/MockData 032023/Author.csv' INTO TABLE Author
+--   FIELDS TERMINATED BY ',' ENCLOSED BY '"'
+--   LINES TERMINATED BY '\n'
+--   IGNORE 1 LINES;
+--   
+
+-- LOAD DATA LOCAL INFILE '/Users/huizou/Desktop/Northeastern/CS\ 5200/Project/MockData\ 032023/Publishers.csv' INTO TABLE Publishers
+--   FIELDS TERMINATED BY ',' ENCLOSED BY '"'
+--   LINES TERMINATED BY '\n'
+--   IGNORE 1 LINES;
+--    
 
 
 
-LOAD DATA LOCAL INFILE '/Users/huizou/Desktop/Northeastern/CS\ 5200/Project/MockData\ 032023/TopTenLists.csv' INTO TABLE TopTenLists
-  FIELDS TERMINATED BY ',' ENCLOSED BY '"'
-  LINES TERMINATED BY '\n'
-  IGNORE 1 LINES;
-  
-  -- Assign SearchHistory.VisitedBooks in [0, 50]
--- UPDATE SearchHistory
--- SET VisitedBooks = FLOOR(0 + RAND() * 50)
--- WHERE SearchId < 300;
+-- LOAD DATA LOCAL INFILE '/Users/huizou/Desktop/Northeastern/CS\ 5200/Project/MockData\ 032023/BookInfo.csv' INTO TABLE BookInfo
+--   CHARACTER SET latin1
+--   FIELDS TERMINATED BY ',' ENCLOSED BY '"'
+--   LINES TERMINATED BY '\n'
+--   IGNORE 1 LINES;
+
+
+
+-- LOAD DATA LOCAL INFILE '/Users/huizou/Desktop/Northeastern/CS\ 5200/Project/MockData\ 032023/BookReview.csv' INTO TABLE BookReview
+--   CHARACTER SET latin1
+--   FIELDS TERMINATED BY ',' ENCLOSED BY '"'
+--   LINES TERMINATED BY '\n'
+--   IGNORE 1 LINES
+--   (ReviewId,ReviewScore,Content,@var_col1,UserId,BookId)
+--   SET Created = STR_TO_DATE(@var_col1,'%Y-%m-%d');
+--   
+--  
+
+
+-- LOAD DATA LOCAL INFILE '/Users/huizou/Desktop/Northeastern/CS\ 5200/Project/MockData\ 032023/Votes.csv' INTO TABLE Votes
+--   FIELDS TERMINATED BY ',' ENCLOSED BY '"'
+--   LINES TERMINATED BY '\n'
+--   IGNORE 1 LINES
+--   (VoteId,UserId,BookId,@var_col1)
+--   SET Created = STR_TO_DATE(@var_col1,'%Y-%m-%d %H:%i:%s');
+
+
+
+-- -- LOAD DATA LOCAL INFILE '/Users/huizou/Desktop/Northeastern/CS\ 5200/Project/CSV/final/UniversalRecommendation.csv' INTO TABLE UniversalRecommendation
+-- --   FIELDS TERMINATED BY ',' ENCLOSED BY '"'
+-- --   LINES TERMINATED BY '\n'
+-- --   IGNORE 1 LINES
+-- --   (UniversalRecomId,@var_col1,VoteId, BookId)
+-- --   SET Created = STR_TO_DATE(@var_col1,'%Y/%m/%d %H:%i:%s');
+
+
+
+-- LOAD DATA LOCAL INFILE '/Users/huizou/Desktop/Northeastern/CS\ 5200/Project/MockData\ 032023/TopTenLists.csv' INTO TABLE TopTenLists
+--   FIELDS TERMINATED BY ',' ENCLOSED BY '"'
+--   LINES TERMINATED BY '\n'
+--   IGNORE 1 LINES;
+--   
+--   -- Assign SearchHistory.VisitedBooks in [0, 50]
+-- -- UPDATE SearchHistory
+-- -- SET VisitedBooks = FLOOR(0 + RAND() * 50)
+-- -- WHERE SearchId < 300;
   
   
