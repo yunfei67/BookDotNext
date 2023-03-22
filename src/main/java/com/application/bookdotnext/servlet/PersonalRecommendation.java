@@ -1,4 +1,4 @@
-package bookReview.servlet;
+package com.application.bookdotnext.servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
