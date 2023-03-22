@@ -116,6 +116,8 @@ public class Inserter {
     vote2 = votesDao.create(vote2);
 
 
+  Publishers publishers1 = new Publishers("Amazon", "US");
+  Publishers publishers2 = new Publishers("Saga Press", "FR");
 
 
   }
