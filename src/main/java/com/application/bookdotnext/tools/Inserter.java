@@ -155,6 +155,7 @@ public class Inserter {
 
     // TopTenList
     TopTenLists topTenList1 = new TopTenLists(user1,bookInfo1,t1);
+    topTenListsDao.create(topTenList1);
 
 
 
