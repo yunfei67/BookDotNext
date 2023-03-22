@@ -115,16 +115,19 @@ public class Inserter {
 
 
     //Users
-    Users user1 = new Users(2, "mpotbury8","Modesta","Potbury",
+
+    Users user1 = new Users(1,"mpotbury8","Modesta","Potbury",
         "ioPcQyVVfO",false,tDate1);
-    Users user2 = new Users(3,"oosmonda", "Olga","Osmond",
+
+    Users user2 = new Users(2,"oosmonda", "Olga","Osmond",
         "ZtaRY8uAWHr",false,tDate2);
+
 
     user1 = UsersDao.getInstance().create(user1);
     user2 = UsersDao.getInstance().create(user2);
 
     //Admin
-    Administrators admin1 = new Administrators(1,"aspedroni7", "Alverta",
+    Administrators admin1 = new Administrators(3,"aspedroni7", "Alverta",
         "Spedroni", "nh4FPTqzeWdG",true,t1);
     admin1 = AdministratorsDao.getInstance().create(admin1);
 
