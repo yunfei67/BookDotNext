@@ -120,6 +120,36 @@ public class Inserter {
   Publishers publishers1 = new Publishers("Amazon", "US");
   Publishers publishers2 = new Publishers("Saga Press", "FR");
 
+    Author author = new Author("Rose Arny", "US");
+    Author author1 = new Author("John Napiery", "US");
+    Author author2 = new Author("JMichael Joosten", "EN");
+    Author author3 = new Author("Sian Tucker", "EN");
+    Author author4 = new Author("Charles Hodge", "KR");
+    Author author5 = new Author("Donald J. Wiseman", "US");
+    authorDao.create(author);
+    authorDao.create(author1);
+    authorDao.create(author2);
+    authorDao.create(author3);
+    authorDao.create(author4);
+    authorDao.create(author5);
+
+
+
+
+
+
+
+    //BookReview
+    BookReview bookReview1 = new BookReview(1,5.0,"Great!",t2,user1,bookInfo1);
+    bookReview1 = bookReviewDao.create(bookReview1);
+
+    BookReview bookReview2 = new BookReview(2,4.0,"Great!",t2,user1,bookInfo2);
+    bookReview2 = bookReviewDao.create(bookReview2);
+
+
+
+
+
     // TopTenList
     TopTenLists topTenList1 = new TopTenLists(user1,bookInfo1,t1);
 

@@ -6,11 +6,11 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class UniversalRecommendDao {
-  protected bookReview.dal.ConnectionManager connectionManager;
+  protected com.application.bookdotnext.dal.ConnectionManager connectionManager;
 
   private static UniversalRecommendDao instance = null;
   protected UniversalRecommendDao() {
-    connectionManager = new bookReview.dal.ConnectionManager();
+    connectionManager = new com.application.bookdotnext.dal.ConnectionManager();
   }
   public static UniversalRecommendDao getInstance() {
     if(instance == null) {
