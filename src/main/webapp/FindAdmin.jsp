@@ -14,8 +14,8 @@
 <form action="findadmin" method="post">
     <h1>Search for a Admin by UserName</h1>
     <p>
-        <label for="firstname">UserName</label>
-        <input id="firstname" name="firstname" value="${fn:escapeXml(param.firstname)}">
+        <label for="username">UserName</label>
+        <input id="username" name="username" value="${fn:escapeXml(param.username)}">
     </p>
     <p>
         <input type="submit">
@@ -27,7 +27,7 @@
 <div id="userCreate"><a href="usercreate">Create User</a></div>
 <br/>
 <br/>
-<div id="AdminCreate"><a href="usercreate">Create Admin</a></div>
+<div id="AdminCreate"><a href="admincreate">Create Admin</a></div>
 <br/>
 <h1>Matching Users</h1>
 <table border="1">
@@ -36,22 +36,20 @@
         <th>UserName</th>
         <th>FirstName</th>
         <th>LastName</th>
-        <th>DoB</th>
-        <th>Reviews</th>
-        <th>TopTen List</th>
-        <th>Delete User</th>
-        <th>Update User</th>
+        <th>Last Login</th>
+        <th>Delete</th>
+
     </tr>
-    <c:forEach items="${Users}" var="User" >
+    <c:forEach items="${adminList}" var="adminList" >
         <tr>
-            <td><c:out value="${User.getUserName()}" /></td>
-            <td><c:out value="${User.getFirstName()}" /></td>
-            <td><c:out value="${User.getLastName()}" /></td>
-            <td><fmt:formatDate value="${User.getDob()}" pattern="yyyy-MM-dd"/></td>
-            <td><a href="userReviews?username=<c:out value="${User.getUserName()}"/>">Reviews</a></td>
-            <td><a href="uservote?username=<c:out value="${User.getUserName()}"/>">TopTen List</a></td>
-            <td><a href="userdelete?username=<c:out value="${User.getUserName()}"/>">Delete</a></td>
-            <td><a href="usercreate?username=<c:out value="${User.getUserName()}"/>">Update</a></td>
+            <td><c:out value="${adminList.getUserName()}" /></td>
+            <td><c:out value="${adminList.getFirstName()}" /></td>
+            <td><c:out value="${adminList.getLastName()}" /></td>
+            <td><fmt:formatDate value="${adminList.getLastLogin()}" pattern="yyyy-MM-dd"/></td>
+            <td><a href="admindelete?username=<c:out value="${adminList.getUserName()}"/>">Delete</a></td>
+<%--            <td><a href="uservote?username=<c:out value="${adminList.getUserName()}"/>">TopTen List</a></td>--%>
+<%--            <td><a href="userdelete?username=<c:out value="${adminList.getUserName()}"/>">Delete</a></td>--%>
+<%--            <td><a href="usercreate?username=<c:out value="${adminList.getUserName()}"/>">Update</a></td>--%>
         </tr>
     </c:forEach>
 </table>

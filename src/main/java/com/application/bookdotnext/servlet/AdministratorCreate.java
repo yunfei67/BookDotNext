@@ -5,6 +5,7 @@ import com.application.bookdotnext.model.Users;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -57,22 +58,16 @@ public class AdministratorCreate extends HttpServlet {
       String lastName = req.getParameter("lastname");
       String stringPassword = req.getParameter("password");
       // login must be in the format yyyy-MM-dd hh:mm:ss.SSS
-      String stringLastLogin = req.getParameter("lastlogin");
-      Timestamp lastLoginDate = null;
+      DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
-      try {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
-        Date parsedDate = dateFormat.parse(stringLastLogin);
-        lastLoginDate = new Timestamp(parsedDate.getTime()) ;
-      } catch (ParseException e) {
-        e.printStackTrace();
-        throw new IOException(e);
-      }
+
+
+
 
       try {
 
-
-        Administrators newAdmin = new Administrators(userName, firstName, lastName,stringPassword, true,lastLoginDate);
+        Administrators newAdmin = new Administrators(userName, firstName, lastName,stringPassword, true,
+            new Timestamp(new Date().getTime()));
         newAdmin = adminDao.create(newAdmin);
         messages.put("success", "Successfully created Admin " + userName);
       } catch (SQLException e) {

@@ -29,7 +29,7 @@ public class UsersDao extends PersonsDao {
 
   public Users create(Users Users) throws SQLException {
     // Insert into th superclass table first.
-    Persons person = create(
+    Persons person = super.create(
         new Persons(Users.getUserId(), Users.getUserName(), Users.getFirstName(),
             Users.getLastName(), Users.getPassword(), Users.isPermission()));
 
