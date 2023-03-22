@@ -29,6 +29,19 @@
     <br/>
     <div id="AdminCreate"><a href="admincreate">Create Admin</a></div>
     <br/>
+
+    <br/>
+    <div id="FindAdmin"><a href="findadmin">Find Administrator</a></div>
+    <br/>
+    <div id="getuniversalrecommendation"><a href="getuniversalrecommendation"> Universal Recommendations</a></div>
+    <br/>
+
+    <br/>
+    <div id="FindBooks"><a href="findBooks"> Search Books </a></div>
+    <br/>
+
+
+    <br/>
 	<h1>Matching Users</h1>
         <table border="1">
             <tr>
@@ -39,6 +52,8 @@
                 <th>DoB</th>
                 <th>Reviews</th>
                 <th>Search History</th>
+                    <th>Personal Recommendation</th>
+
                 <th>Delete User</th>
                 <th>Update User</th>
             </tr>
@@ -51,8 +66,12 @@
 <%--                    findBookReviewByUserId--%>
                     <td><a href="findBookReviewByUserId?userId=<c:out value="${User.getUserId()}"/>">Reviews</a></td>
                     <td><a href="findsearchhistory?userId=<c:out value="${User.getUserId()}"/>">Search History</a></td>
+                    <td><a href="PersonalRecommendation?userId=<c:out value="${User.getUserId()}"/>">Personal Recommendations</a></td>
                     <td><a href="userdelete?username=<c:out value="${User.getUserName()}"/>">Delete</a></td>
                     <td><a href="usercreate?username=<c:out value="${User.getUserName()}"/>">Update</a></td>
+
+
+
                 </tr>
             </c:forEach>
        </table>
