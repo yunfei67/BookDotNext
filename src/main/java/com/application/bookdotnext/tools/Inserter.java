@@ -65,6 +65,9 @@ public class Inserter {
 
 //    LocalDate localDate = tDate1.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
+    Publishers publishers1 = new Publishers("Lion Books", "US");
+    Publishers publishers2 = new Publishers("Willowisp Press", "FR");
+
     //BookInfo
     BookInfo bookInfo = new BookInfo("Henry Purcell",	1995	,"Henry Purcell set to music an entire age. Endlessly resourceful and dazzlingly innovatory",
         "http://books.google.com/books?id=RFEZAQAAIAAJ&dq=Henry+Purcell&hl=&source=gbs_api", "Fiction", "Lion Books", "Maureen Duffy",
@@ -117,8 +120,7 @@ public class Inserter {
     vote2 = votesDao.create(vote2);
 
 
-  Publishers publishers1 = new Publishers("Amazon", "US");
-  Publishers publishers2 = new Publishers("Saga Press", "FR");
+
 
     Author author = new Author("Rose Arny", "US");
     Author author1 = new Author("John Napiery", "US");
