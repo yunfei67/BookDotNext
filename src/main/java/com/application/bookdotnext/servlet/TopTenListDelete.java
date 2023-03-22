@@ -1,8 +1,6 @@
-package bookReview.servlet;
-
-import bookReview.dal.*;
-import bookReview.model.*;
-import bookReview.model.BookInfo.Categories;
+package com.application.bookdotnext.servlet;
+import com.application.bookdotnext.dal.*;
+import com.application.bookdotnext.model.*;
 
 import java.io.IOException;
 import java.sql.SQLException;
