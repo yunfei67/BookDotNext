@@ -55,7 +55,7 @@
                 <th>Personal Recommendation</th>
 		<th>Top 10 List </th>
                 <th>Delete User</th>
-                <th>Update User</th>
+<%--                <th>Update User</th>--%>
             </tr>
             <c:forEach items="${Users}" var="User" >
                 <tr>
@@ -69,7 +69,7 @@
                     <td><a href="PersonalRecommendation?userId=<c:out value="${User.getUserId()}"/>">Personal Recommendations</a></td>
 		    <td><a href="FindTopTenList?userId=<c:out value="${User.getUserId()}"/>">TopTenLists</a></td>
                     <td><a href="userdelete?username=<c:out value="${User.getUserName()}"/>">Delete</a></td>
-                    <td><a href="usercreate?username=<c:out value="${User.getUserName()}"/>">Update</a></td>
+<%--                    <td><a href="usercreate?username=<c:out value="${User.getUserName()}"/>">Update</a></td>--%>
 
 
 
