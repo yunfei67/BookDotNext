@@ -70,6 +70,7 @@
 		    <td><a href="FindTopTenList?userId=<c:out value="${User.getUserId()}"/>">TopTenLists</a></td>
                     <td><a href="userdelete?username=<c:out value="${User.getUserName()}"/>">Delete</a></td>
 <%--                    <td><a href="usercreate?username=<c:out value="${User.getUserName()}"/>">Update</a></td>--%>
+<%--                    update user and admin need revision--%>
 
 
 
